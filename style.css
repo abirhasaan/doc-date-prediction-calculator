@@ -1,0 +1,395 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.background-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(0, 238, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(0, 238, 255, 0.05) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(0, 238, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00eeff, transparent);
+}
+
+.header {
+  text-align: center;
+  padding: 40px 30px 30px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 238, 255, 0.1) 0%,
+    rgba(0, 238, 255, 0.05) 100%
+  );
+  border-bottom: 1px solid rgba(0, 238, 255, 0.1);
+}
+
+.header .icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #00eeff, #0099cc);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 238, 255, 0.3);
+}
+
+.header .icon i {
+  font-size: 36px;
+  color: #0f0f23;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #ffffff, #00eeff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header .subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+.header .instruction-text {
+  font-size: 14px;
+  color: rgba(0, 238, 255, 0.8);
+  font-weight: 400;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: rgba(0, 238, 255, 0.1);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.form-wrapper {
+  padding: 40px 30px;
+}
+
+.input-section {
+  margin-bottom: 40px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.section-header i {
+  font-size: 20px;
+  color: #00eeff;
+  width: 24px;
+}
+
+.section-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.date-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.single-input {
+  display: flex;
+  justify-content: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group.full-width {
+  width: 100%;
+  max-width: 300px;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  margin-left: 4px;
+}
+
+.input-group input {
+  width: 100%;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  outline: none;
+  text-align: left;
+}
+
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+  text-align: left;
+}
+
+.input-group input:focus {
+  border-color: #00eeff;
+  background: rgba(0, 238, 255, 0.1);
+  box-shadow: 0 0 0 4px rgba(0, 238, 255, 0.1);
+  transform: translateY(-2px);
+  text-align: left;
+}
+
+.input-group input:hover:not(:focus) {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.submit-section {
+  text-align: center;
+  margin: 50px 0 30px;
+}
+
+.calculate-btn {
+  background: linear-gradient(135deg, #00eeff 0%, #0099cc 100%);
+  color: #0f0f23;
+  border: none;
+  border-radius: 16px;
+  padding: 18px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0, 238, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.calculate-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.calculate-btn:hover::before {
+  left: 100%;
+}
+
+.calculate-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 238, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.calculate-btn:active {
+  transform: translateY(-1px);
+}
+
+.calculate-btn i {
+  font-size: 20px;
+}
+
+.result-section {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 238, 255, 0.1),
+    rgba(0, 238, 255, 0.05)
+  );
+  border: 1px solid rgba(0, 238, 255, 0.2);
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.result-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.result-section strong {
+  color: #00eeff;
+  font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    margin: 10px auto;
+    border-radius: 20px;
+  }
+
+  .header {
+    padding: 30px 20px 20px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .header .icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+  }
+
+  .header .icon i {
+    font-size: 28px;
+  }
+
+  .form-wrapper {
+    padding: 30px 20px;
+  }
+
+  .date-inputs {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .section-header h3 {
+    font-size: 16px;
+  }
+
+  .calculate-btn {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+
+  .result-section {
+    font-size: 16px;
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .form-wrapper {
+    padding: 25px 15px;
+  }
+
+  .input-group input {
+    height: 50px;
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .calculate-btn {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+}
+
+/* Hide number input spinners */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.calculate-btn.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+  pointer-events: none;
+}

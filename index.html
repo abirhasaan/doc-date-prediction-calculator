@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doc Date Prediction Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="background-pattern"></div>
+    <div class="container">
+      <div class="header">
+        <div class="icon">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+        <h1>Doc Date Prediction Calculator</h1>
+        <p class="subtitle">Calculate your approximate appointment date</p>
+        <p class="instruction-text">
+          💡 Tip: Fields will auto-advance when complete, or use Tab/Enter to
+          navigate
+        </p>
+      </div>
+
+      <div class="form-wrapper">
+        <!-- Last Doc Mail Date -->
+        <div class="input-section">
+          <div class="section-header">
+            <i class="fas fa-envelope"></i>
+            <h3>Last Doc Mail Given Upto</h3>
+          </div>
+          <div class="date-inputs">
+            <div class="input-group">
+              <label for="date1">Day</label>
+              <input
+                type="number"
+                name="date"
+                id="date1"
+                placeholder="DD"
+                required="required"
+                min="1"
+                max="31"
+              />
+            </div>
+            <div class="input-group">
+              <label for="month1">Month</label>
+              <input
+                type="number"
+                name="month"
+                id="month1"
+                placeholder="MM"
+                required="required"
+                min="1"
+                max="12"
+              />
+            </div>
+            <div class="input-group">
+              <label for="year1">Year</label>
+              <input
+                type="number"
+                name="year"
+                id="year1"
+                placeholder="YYYY"
+                required="required"
+                min="2023"
+                max="2030"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Appointment Date -->
+        <div class="input-section">
+          <div class="section-header">
+            <i class="fas fa-user-clock"></i>
+            <h3>Your Appointment Date</h3>
+          </div>
+          <div class="date-inputs">
+            <div class="input-group">
+              <label for="date2">Day</label>
+              <input
+                type="number"
+                name="date"
+                id="date2"
+                placeholder="DD"
+                required="required"
+                min="1"
+                max="31"
+              />
+            </div>
+            <div class="input-group">
+              <label for="month2">Month</label>
+              <input
+                type="number"
+                name="month"
+                id="month2"
+                placeholder="MM"
+                required="required"
+                min="1"
+                max="12"
+              />
+            </div>
+            <div class="input-group">
+              <label for="year2">Year</label>
+              <input
+                type="number"
+                name="year"
+                id="year2"
+                placeholder="YYYY"
+                required="required"
+                min="2023"
+                max="2030"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Number of Days -->
+        <div class="input-section">
+          <div class="section-header">
+            <i class="fas fa-calendar-days"></i>
+            <h3>Days Cover Per Month</h3>
+          </div>
+          <div class="single-input">
+            <div class="input-group full-width">
+              <!-- <label for="numberOfDays">Number of Days</label> -->
+              <input
+                type="number"
+                name="numberOfDays"
+                id="numberOfDays"
+                placeholder="Enter days covered in one month"
+                required="required"
+                min="1"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="submit-section">
+          <button type="button" class="calculate-btn" onclick="cal()">
+            <i class="fas fa-calculator"></i>
+            <span>Calculate Prediction</span>
+          </button>
+        </div>
+
+        <!-- Result Display -->
+        <div id="time" class="result-section"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
